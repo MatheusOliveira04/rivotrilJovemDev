@@ -1,0 +1,9 @@
+<div id="style">
+<div *ngFor="let listar of lista; let i = index">
+<p> {{ listar.marca }} | {{ listar.placa}} | {{listar.ano}} | {{listar.tipo}}
+    <button (click)="excluir(listar[i])">
+    <img src="../../../assets/icones/excluir.png" alt="">
+    </button>
+</p>
+</div>
+</div>

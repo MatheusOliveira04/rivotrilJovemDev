@@ -1,0 +1,34 @@
+<h1>Cadastro de Carros</h1>
+
+<div id="style">
+<div>
+  <label for="txtMarca">Marca: </label>
+  <input type="text" [(ngModel)]="carro.marca" id="txtMarca" name="txtMarca"
+  />
+</div>
+
+<div>
+  <label for="txtPlaca">Placa: </label>
+  <input type="text" [(ngModel)]="carro.placa" id="txtPlaca" name="txtPlaca"
+   />
+</div>
+
+<div>
+  <label for="txtAno">Ano: </label>
+  <input type="text" [(ngModel)]="carro.ano" id="txtAno" name="txtAno"
+   />
+</div>
+
+<div>
+  <input type="radio" [(ngModel)]="carro.tipo" value="Popular" />Popular
+  <input type="radio" [(ngModel)]="carro.tipo" value="Luxo" /> Luxo
+  <input type="radio" [(ngModel)]="carro.tipo" value="Carga" /> Carga
+</div>
+
+<button (click)="salvar(carro)">salvar</button>
+
+<p *ngIf="valida"> Ano inálido. Por favor indique um ano entre 1950 e 2025</p>
+
+</div>
+
+
