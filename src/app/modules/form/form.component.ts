@@ -8,6 +8,7 @@ import { ServiceService } from '../services/service.service';
 })
 export class FormComponent {
   valida:boolean = false;
+  mensagem: string = '';
 
   public carro = {
     marca: '',
@@ -31,7 +32,7 @@ export class FormComponent {
       ano: 1950,
       tipo: ''
     }
-    if (this.validaAno(valor.ano)) {
+    if (this.validaDados(obj)) {
       this.service.adicionarLista(obj);
       this.valida = false;
     } else{
@@ -43,6 +44,16 @@ export class FormComponent {
     if(ano >= 1950 && ano <= 2025){
       return true;
     } 
+    this.mensagem = 'Ano inálido. Por favor indique um ano entre 1950 e 2025';
     return false;
+  }
+
+  validaDados(carro: any): boolean{
+    if(carro.marca.trim() === '' || carro.placa.trim() === '' || carro.ano === 0 || carro.tipo === ''){
+      this.mensagem = 'Preencha todos os dados';
+      return false;
+    } else {
+      return this.validaAno(this.carro.ano);
+    }
   }
 }

@@ -1,9 +1,28 @@
 <div id="style">
-<div *ngFor="let listar of lista; let i = index">
-<p> {{ listar.marca }} | {{ listar.placa}} | {{listar.ano}} | {{listar.tipo}}
-    <button (click)="excluir(listar[i])">
-    <img src="../../../assets/icones/excluir.png" alt="">
-    </button>
-</p>
-</div>
+  <div class="fundo">
+    <div id="cabecalho">
+        <h2 class="marca">Marca</h2>
+        <h2 class="placa">Placa</h2>
+        <h2 class="ano">Ano</h2>
+        <h2 class="tipo">Tipo</h2>
+        <h2 class="lixo"></h2>
+    </div>
+    <div>
+      <div *ngFor="let listar of lista; let i = index" class="coluna">
+        <p class="marca">{{ listar.marca }}</p>
+        <p class="placa">{{ listar.placa }}</p>
+        <p class="ano">{{ listar.ano }}</p>
+        <p class="tipo">{{ listar.tipo }}</p>
+        <div class="lixo">
+            <button (click)="editar(i)">
+              <img src="../../../assets/icones/editar.png"/>
+              </button>
+          <button (click)="excluir(i)">
+            <img src="../../../assets/icones/excluir.png" />
+          </button>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
 </div>

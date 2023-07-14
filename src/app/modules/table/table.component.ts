@@ -7,7 +7,9 @@ import { ServiceService } from '../services/service.service';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit{
+  prontoParaEditar = false;
   public lista: Array<any> = [];
+
 
 constructor(private service: ServiceService){}
 
@@ -15,7 +17,12 @@ constructor(private service: ServiceService){}
     this.lista = this.service.pegarLista();
   }
 
-  excluir(carro: any){
-    this.service.excluirDaLista(carro);
+  public excluir(index: number){
+    this.service.excluirDaLista(index);
+  }
+
+  public editar(posicao: number){
+    this.service.editar(posicao);
+    this.prontoParaEditar = true;
   }
 }
