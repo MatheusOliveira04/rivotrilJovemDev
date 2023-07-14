@@ -1,12 +1,13 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { DoCheck, EventEmitter, Injectable } from '@angular/core';
+import { Carro } from '../models/carro';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ServiceService {
+export class ServiceService{
   posicao!: number;
   public modoEdicao: boolean = false;
-  public lista: Array<{marca: string, placa:string, ano: number, tipo:string}> = [];
+  public lista: Array<Carro> = JSON.parse(localStorage.getItem("Tarefas") || '[]');
 
   public adicionarLista(carro: any){
     if(this.modoEdicao === true){
@@ -15,8 +16,10 @@ export class ServiceService {
     } else {
     this.lista.push(carro);
     }
+    localStorage.setItem('Tarefas', JSON.stringify(this.lista));
   }
-    
+
+
     public excluirDaLista(index: number){
       this.lista.splice(index, 1);
     }

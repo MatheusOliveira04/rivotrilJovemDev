@@ -20,9 +20,10 @@
 </div>
 
 <div>
-  <input type="radio" [(ngModel)]="carro.tipo" value="Popular" />Popular
-  <input type="radio" [(ngModel)]="carro.tipo" value="Luxo" /> Luxo
-  <input type="radio" [(ngModel)]="carro.tipo" value="Carga" /> Carga
+  <label *ngFor="let opcao of tiposCarro">
+    <input type="radio" [(ngModel)]="carro.tipo" [value]="opcao" />
+    {{ opcao }}
+  </label>
 </div>
 
 <button (click)="salvar(carro)">salvar</button>

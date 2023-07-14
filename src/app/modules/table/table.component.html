@@ -12,7 +12,7 @@
         <p class="marca">{{ listar.marca }}</p>
         <p class="placa">{{ listar.placa }}</p>
         <p class="ano">{{ listar.ano }}</p>
-        <p class="tipo">{{ listar.tipo }}</p>
+        <p class="tipo"  [ngStyle]="getEstilo(listar.tipo)">{{ listar.tipo }}</p>
         <div class="lixo">
             <button (click)="editar(i)">
               <img src="../../../assets/icones/editar.png"/>
