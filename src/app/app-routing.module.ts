@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GroupComponent } from './modules/group/group.component';
-import { FormComponent } from './modules/form/form.component';
+import { GroupComponent } from './modules/componets/group/group.component';
+import { FormComponent } from './modules/componets/form/form.component';
 
 const routes: Routes = [
   {path: 'group', component: FormComponent},
